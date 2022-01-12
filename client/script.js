@@ -13,7 +13,17 @@ var body = [];
 
 var socket = io();
 
-socket.emit('addPlayer', head, body);
+function randColor() {
+    rgb.r = Math.floor(Math.random() * 255)
+    rgb.g = Math.floor(Math.random() * 255)
+    rgb.b = Math.floor(Math.random() * 255)
+}
+
+randColor();
+
+socket.emit('getPlayers');
+socket.emit('addPlayer', head, body, `rgb(${rgb.r}, ${rgb.b}, ${rgb.g})`);
+
 
 document.addEventListener("keydown", handleKeyPress)
 
@@ -42,11 +52,7 @@ function handleKeyPress(event) {
     }
 }
 
-function randColor() {
-    rgb.r = Math.floor(Math.random() * 255)
-    rgb.g = Math.floor(Math.random() * 255)
-    rgb.b = Math.floor(Math.random() * 255)
-}
+
 
 function die() {
     head.x = 0;
@@ -94,20 +100,21 @@ setInterval(() => {
         body.shift();
     }
 
-    randColor();
-
     socket.emit('player-update', head, body);
 
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //ctx.fillStyle = `rgb(${rgb.r}, ${rgb.b}, ${rgb.g})`;
-    ctx.fillStyle = `lime`;
+    ctx.fillStyle = `rgb(${rgb.r}, ${rgb.b}, ${rgb.g})`;
+    //ctx.fillStyle = `lime`;
     ctx.fillRect(head.x, head.y, 14, 14);
     body.forEach(element => {
         ctx.fillRect(element.x, element.y, 14, 14);
 
 
     });
+    drawPlayers();
+
+
     ctx.fillStyle = "red";
     ctx.fillRect(apple.x, apple.y, 14, 14);
 

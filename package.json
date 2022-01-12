@@ -9,6 +9,7 @@
     },
     "devDependencies": {},
     "scripts": {
+        "start": "node server/index.js",
         "test": "nodemon server/index.js"
     },
     "repository": {
