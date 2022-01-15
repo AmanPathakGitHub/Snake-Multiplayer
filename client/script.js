@@ -100,7 +100,7 @@ setInterval(() => {
         body.shift();
     }
 
-    socket.emit('player-update', head, body);
+    socket.volatile.emit('player-update', head, body);
 
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
