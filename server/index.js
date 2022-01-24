@@ -55,12 +55,3 @@ setInterval(async() => {
 server.listen(PORT, () => {
     console.log('listening on *: ' + PORT);
 });
-
-
-/* 
-    
-
-    //updates server list players
-    
-    
-*/
