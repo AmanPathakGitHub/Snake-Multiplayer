@@ -100,9 +100,6 @@ setInterval(() => {
         body.shift();
     }
 
-    socket.volatile.emit('player-update', head, body);
-
-
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = `rgb(${rgb.r}, ${rgb.b}, ${rgb.g})`;
     //ctx.fillStyle = `lime`;

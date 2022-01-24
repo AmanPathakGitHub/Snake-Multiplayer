@@ -14,8 +14,8 @@ socket.on('removePlayer', (id) => {
     delete players[id];
 });
 
-socket.on('updatePlayer', (id, head, body) => {
-    players[id] = { head, body, color: players[id].color };
+socket.on('updatePlayer', async() => {
+    socket.emit('updatePlayer', head, body);
 });
 
 

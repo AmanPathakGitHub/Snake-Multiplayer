@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 io.on('connection', async(socket) => {
     console.log('a user connected');
 
-    socket.on('disconnect', () => {
+    socket.on('disconnect', async() => {
         delete players[socket.id];
         io.emit('removePlayer', socket.id);
     });
@@ -37,14 +37,30 @@ io.on('connection', async(socket) => {
         console.log(players[socket.id]);
     });
 
-    socket.on('player-update', async(head, body) => {
+    socket.on('updatePlayer', async(head, body) => {
         players[socket.id].head = head;
         players[socket.id].body = body;
-        socket.broadcast.emit('updatePlayer', socket.id, head, body);
+        io.emit('getPlayers', players)
+    })
 
-    });
+
 });
+
+
+setInterval(async() => {
+    io.emit('updatePlayer')
+
+}, 100);
 
 server.listen(PORT, () => {
     console.log('listening on *: ' + PORT);
 });
+
+
+/* 
+    
+
+    //updates server list players
+    
+    
+*/
