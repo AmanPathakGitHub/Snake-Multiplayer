@@ -1,3 +1,5 @@
+const PORT = process.env.PORT | 8080;
+
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -25,17 +27,17 @@ io.on('connection', (socket) => {
         io.emit('removePlayer', socket.id);
     });
 
-    socket.on('getPlayers', () => {
+    socket.on('getPlayers', async() => {
         io.to(socket.id).emit('getPlayers', players);
     });
 
-    socket.on('addPlayer', (head, body, color) => {
+    socket.on('addPlayer', async(head, body, color) => {
         socket.broadcast.emit('addPlayer', socket.id, head, body, color);
         players[socket.id] = { head, body, color };
         console.log(players[socket.id]);
     });
 
-    socket.on('player-update', (head, body) => {
+    socket.on('player-update', async(head, body) => {
         players[socket.id].head = head;
         players[socket.id].body = body;
         socket.broadcast.emit('updatePlayer', socket.id, head, body);
@@ -43,6 +45,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(80, () => {
-    console.log('listening on *:80');
+server.listen(PORT, () => {
+    console.log('listening on *: ' + PORT);
 });
