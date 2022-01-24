@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
     res.sendFile(rootPath + "/client/ree.html");
 });
 
-io.on('connection', (socket) => {
+io.on('connection', async(socket) => {
     console.log('a user connected');
 
     socket.on('disconnect', () => {
