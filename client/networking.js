@@ -1,7 +1,6 @@
 var players = {};
 
 socket.on('addPlayer', (id, head, body, color) => {
-    console.log("added Player");
     players[id] = { head, body, color };
 });
 
@@ -21,23 +20,25 @@ socket.on('updatePlayer', async() => {
 
 function drawPlayers() {
     for (const [key, player] of Object.entries(players)) {
-        ctx.fillStyle = player.color;
+        if (!(key === socket.id)) {
 
-        console.log(player.color);
+            ctx.fillStyle = player.color;
 
-        if (head.x == player.head.x && head.y == player.head.y) {
-            die();
-        }
+            console.log(player.color);
 
-        ctx.fillRect(player.head.x, player.head.y, 14, 14);
-        player.body.forEach(element => {
-            ctx.fillRect(element.x, element.y, 14, 14);
-
-            if (head.x == element.x && head.y == element.y) {
+            if (head.x == player.head.x && head.y == player.head.y) {
                 die();
             }
-        });
+
+            ctx.fillRect(player.head.x, player.head.y, 14, 14);
+            player.body.forEach(element => {
+                ctx.fillRect(element.x, element.y, 14, 14);
+
+                if (head.x == element.x && head.y == element.y) {
+                    die();
+                }
+            });
+        }
+
     }
-
-
 }

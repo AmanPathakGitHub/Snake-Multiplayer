@@ -50,7 +50,7 @@ io.on('connection', async(socket) => {
 setInterval(async() => {
     io.emit('updatePlayer')
 
-}, 100);
+}, 80);
 
 server.listen(PORT, () => {
     console.log('listening on *: ' + PORT);
