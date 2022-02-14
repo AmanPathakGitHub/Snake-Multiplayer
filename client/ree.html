@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 
 <head>
+    <style>
+        body {
+            background-color: grey;
+        }
+        canvas {
+            background: black;
+        }
 
+        canvas {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 800px;
+        }
+    </style>
 
-    <body>
-        <style>
-            canvas {
-                background: black;
-            }
-        </style>
-        <canvas id="mycanvas" width="480px" height="480px"></canvas>
+<body>
+    
+    <canvas class="center" id="mycanvas" width="480px" height="480px"></canvas>
 
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="script.js"></script>
-        <script src="networking.js"></script>
-    </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+    <script src="networking.js"></script>
+</body>
 </head>

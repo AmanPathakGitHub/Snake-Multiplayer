@@ -45,6 +45,10 @@ io.on('connection', async(socket) => {
         io.emit('getPlayers', players)
     })
 
+    socket.on('GotApple', async() => {
+        
+    });
+
 
 });
 
