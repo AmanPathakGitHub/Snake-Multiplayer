@@ -18,7 +18,7 @@ let players = {};
 app.use(express.static(`${rootPath}/client`));
 
 app.get('/', (req, res) => {
-    res.sendFile(rootPath + "/client/ree.html");
+    res.sendFile(rootPath + "/client/home.html");
 });
 
 io.on('connection', async(socket) => {
