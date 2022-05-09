@@ -3,7 +3,7 @@
 <head>
     <style>
         body {
-            background-color: grey;
+            background-color: #023600;
         }
         canvas {
             background: black;
@@ -17,10 +17,25 @@
             display: block;
             width: 800px;
         }
+
+        p {
+            color: white;
+            font-size: xx-large;
+            font-family: monospace;
+
+            position: absolute;
+        }
     </style>
 
 <body>
     
+    <p>How to play: <br />
+        Use arrow keys to move, <br />
+        <br />
+        Other people can connect by going <br/>
+        to the same website and connecting
+    </p>
+
     <canvas class="center" id="mycanvas" width="480px" height="480px"></canvas>
 
     <script src="/socket.io/socket.io.js"></script>

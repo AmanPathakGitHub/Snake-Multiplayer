@@ -37,16 +37,16 @@ function randApplePos() {
 
 function handleKeyPress(event) {
     switch (event.keyCode) {
-        case 87:
+        case 38:
             if (direction != "down") direction = "up";
             break;
-        case 83:
+        case 40:
             if (direction != "up") direction = "down";
             break;
-        case 65:
+        case 37:
             if (direction != "left") direction = "right";
             break;
-        case 68:
+        case 39:
             if (direction != "right") direction = "left";
             break;
     }

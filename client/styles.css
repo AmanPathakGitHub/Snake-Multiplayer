@@ -146,3 +146,15 @@ h1::after {
         transform: translate(-49%, -53%);
     }
 }
+
+p {
+    font-family: monospace;
+    color: white;
+    font-size: large;
+
+    padding: 30px;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
