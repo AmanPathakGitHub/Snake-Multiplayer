@@ -46,7 +46,7 @@ function handleKeyPress(event) {
         case 37:
             if (direction != "left") direction = "right";
             break;
-        case vcszklvjsz:
+        case 39:
             if (direction != "right") direction = "left";
             break;
     }
