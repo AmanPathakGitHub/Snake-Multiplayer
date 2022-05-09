@@ -5,41 +5,44 @@
         body {
             background-color: #023600;
         }
+
         canvas {
             background: black;
         }
 
         canvas {
-            padding-left: 0;
-            padding-right: 0;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
+
             width: 800px;
         }
 
         p {
             color: white;
-            font-size: xx-large;
+            margin-left: auto;
+            font-size: 2vw;
             font-family: monospace;
-
             position: absolute;
+            top: 0;
+            right: 16px;
         }
     </style>
 
 <body>
-    
-    <p>How to play: <br />
-        Use arrow keys to move, <br />
-        <br />
-        Other people can connect by going <br/>
-        to the same website and connecting
-    </p>
+
+
 
     <canvas class="center" id="mycanvas" width="480px" height="480px"></canvas>
+
+
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
     <script src="networking.js"></script>
+
+    <p>How to play: <br />
+        Use arrow keys to move, <br />
+        <br />
+        Other people can connect by going <br />
+        to the same website and connecting
+    </p>
 </body>
 </head>
